@@ -1,9 +1,15 @@
 <template>
   <div class="container">
-	<header class="text-center row">
-		<i class="fa fa-search" ref="icon_search" aria-hidden="true"></i>
-		<input v-model="search" id="search" type="search" class="form-control" placeholder="搜索">
-	</header>
+    <header class="text-center row">
+      <i class="fa fa-search" ref="icon_search" aria-hidden="true"></i>
+      <input @change="search" id="search" type="search" class="form-control" placeholder="搜索">
+    </header>
+	  <nav class="flex text-center">
+      <div><img src="../assets/icons/boy.svg" alt="icon"><br>男孩</div>
+      <div><img src="../assets/icons/boy.svg" alt="icon"><br>女孩</div>
+      <div><img src="../assets/icons/boy.svg" alt="icon"></div>
+      <div><img src="../assets/icons/boy.svg" alt="icon"></div>
+    </nav>
     <foote-menu :navindex='0'></foote-menu>
   </div>
 </template>
@@ -14,11 +20,19 @@ export default {
   data() {
     return {
 	};
+  },
+  methods:{
+    search(){
+      this.$root.pop
+    }
   }
 };
 </script>
 
 <style scoped>
+.flex img{
+  width: 100%;
+}
 #search {
   border: none;
   outline: none;
@@ -35,5 +49,6 @@ export default {
 }
 .fa-search{
 	transform: translateX(30px);
+	color: gray;
 }
 </style>

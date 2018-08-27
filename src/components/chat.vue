@@ -1,19 +1,6 @@
 <template>
   <div class="container">
     <header class="text-center row"><span class="h4">消息</span></header>
-    <div class="recent">Recent Collections</div>
-    <section class="collections-item">
-		<div class="item-header">You haven't saced any homes yet</div>
-		<div class="item-footer">
-			<div class="col-xs-10 message">message</div>
-			<div class="col-xs-2">
-				<router-link to="waiting" class='btn-set btn'><i class="fa fa-industry" aria-hidden="true"></i></router-link>
-			</div>
-		</div>
-    </section>
-	<div class="recent">Recent Saced Searches</div>
-	<p>You have no saved searches.</p>
-    <div class="black-btn round-btn"><i class="fa fa-plus" aria-hidden="true"></i></div>
     <foote-menu :navindex='1'></foote-menu>
   </div>
 </template>
@@ -27,9 +14,6 @@ export default {
     }
   },
   mounted() {
-    document
-      .querySelector("body")
-      .setAttribute("style", "background-color:#fff");
       document.title='TeamLink-'+this.title;
   }
 };

@@ -21,7 +21,8 @@ export default {
         },
         {
           icon: `<i class="fa fa-2x fa-user-o" aria-hidden="true"></i>`,
-          path: this.$cookie.get("user-name") ? "/user-center" : "/login"
+          path:`/user-center`
+         /*  path: this.$cookie.get("user-name") ? "/user-center" : "/login" */
           //如果没有登录，则链接到登录页面
         }
       ]
