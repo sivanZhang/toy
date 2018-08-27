@@ -1,4 +1,11 @@
 /* ----------------------------------------复用类----------------------------------- */
+.flex{
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
 .blue-link{
     color: #337ab7!important;
 }
@@ -17,10 +24,6 @@ header {
 }
  .relative {
     position: relative;
-}
-.black-btn{
-    background-color: black;
-    color: #fff;
 }
 .common-btn{
 display: inline-block;
