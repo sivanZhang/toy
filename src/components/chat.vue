@@ -14,7 +14,7 @@ export default {
     }
   },
   mounted() {
-      document.title='TeamLink-'+this.title;
+      document.title='Toy-'+this.title;
   }
 };
 </script>

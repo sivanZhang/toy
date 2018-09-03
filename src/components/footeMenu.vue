@@ -1,10 +1,12 @@
 <template>
-  <ul class="row">
+  <ul class="row light-primary-color">
     <li class="col-xs-4"
     v-for="(item, index) in nav"
-    @click="routerLink(index, item.path)"
-    :key="index" v-html="item.icon"
-     :class="navindex == index ? 'active' : ''">
+    @click="routerLink(item.path)"
+    :class="navindex == index ?'base-color':''"
+    :key="index">
+    <img :src="navindex == index ? item.activeSrc : item.src" alt="">
+    <div>{{item.name}}</div>
     </li>
   </ul>
 </template>
@@ -14,15 +16,24 @@ export default {
   data() {
     return {
       nav: [
-        { icon: `<i class="fa fa-2x fa-balance-scale" aria-hidden="true"></i>`, path: '/' },
         {
-          icon: `<i class="fa fa-2x fa-commenting-o" aria-hidden="true"></i>`,
+          src: require(`../assets/icons/home.png`),
+          activeSrc: require(`../assets/icons/home_act.png`),
+          name: `主页`,
+          path: "/"
+        },
+        {
+          src: require(`../assets/icons/chat.png`),
+          activeSrc: require(`../assets/icons/chat_act.png`),
+          name: `消息`,
           path: "/chat"
         },
         {
-          icon: `<i class="fa fa-2x fa-user-o" aria-hidden="true"></i>`,
-          path:`/user-center`
-         /*  path: this.$cookie.get("user-name") ? "/user-center" : "/login" */
+          src: require(`../assets/icons/user.png`),
+          activeSrc: require(`../assets/icons/user_act.png`),
+          name: `用户`,
+          path: `/user-center`
+          /*  path: this.$cookie.get("user-name") ? "/user-center" : "/login" */
           //如果没有登录，则链接到登录页面
         }
       ]
@@ -30,7 +41,7 @@ export default {
   },
   props: ["navindex"],
   methods: {
-    routerLink(index, path) {
+    routerLink(path) {
       this.$router.push(path);
     }
   }
@@ -44,11 +55,12 @@ ul {
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 10px 0;
+  padding: 4px 0;
   text-align: center;
-  color: gray;
+  color: #757575;
+  font-size: 12px;
 }
-.active {
-  color: #42b983;
+li img {
+  height: 24px;
 }
 </style>

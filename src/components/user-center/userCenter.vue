@@ -1,10 +1,9 @@
 <template>
 <div class="container">
     <header class="text-center row"><span class="h4">个人中心</span></header>
-    <div class="title" @click="toChange">
-        <div class="col1"><img class="user-img" :src="image_src" alt=""></div>
-        <div class="col2">Phone:{{phone_number}}</div>
-        <div class="col3 text-right"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+    <div class="title text-center" @click="toChange">
+        <img class="user-img" :src="image_src" alt="">
+        <div class="name">{{phone_number||'游客'}}</div>
     </div>
     <ul class="text-left row links">
         <router-link tag="li" to="/waiting">Settings<i class="fa fa-pull-right fa-angle-right" aria-hidden="true"></i></router-link>
@@ -21,7 +20,7 @@ export default {
     return {
       phone_number: this.$cookie.get("user-name"),
       image_src: "",
-      title:'More'
+      title:'user-center'
     };
   },
   methods: {
@@ -52,7 +51,7 @@ export default {
     document
       .querySelector("body")
       .setAttribute("style", "background-color:#fff");
-      document.title='TeamLink-'+this.title;
+      document.title='Toy-'+this.title;
   }
 }
 </script>
@@ -71,28 +70,18 @@ li + li {
   border-top: 1px solid #e1e4e8;
 }
 .user-img {
-  width: 60px;
-  height: 60px;
-  border-radius: 3px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border:1px solid #ddd;
+  padding: 5px;
 }
 .title {
   padding: 10px 0;
   width: 100%;
   display: table;
 }
-.col1,
-.col2,
-.col3 {
-  display: table-cell;
-}
-.col1 {
-  vertical-align: middle;
-  width: 75px;
-}
-.col2 {
-  vertical-align: bottom;
-}
-.col3 {
-  vertical-align: middle;
+.name{
+  padding: 15px 0;
 }
 </style>

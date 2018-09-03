@@ -1,0 +1,66 @@
+.title {
+    font-size: 22px;
+    margin-bottom: 60px;
+  }
+  
+  .form-control,
+  .row {
+    margin-top: 15px;
+  }
+  .form-control {
+    height: 42px;
+  }
+  .row a {
+    color: gray;
+  }
+  
+  #submit {
+    width: 100%;
+    margin-top: 42px;
+    height: 42px;
+  }
+  
+  form {
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(40%);
+    width: 100%;
+  }
+  
+  .logo {
+    width: 40%;
+    margin: 15px auto;
+  }
+  input + input {
+    margin-top: 15px;
+  }
+  
+  input::-webkit-input-placeholder {
+    color: #ccc;
+  }
+  
+  input::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #ccc;
+  }
+  
+  input:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #ccc;
+  }
+  
+  input:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #ccc;
+  }
+  #send_code {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    border: 0px;
+    background-color: transparent;
+  }
+  #send_code:focus {
+    border: 0px;
+    outline: 0px;
+  }

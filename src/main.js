@@ -11,7 +11,6 @@ import '../static/bootstrap-3.3.7/js/bootstrap.min.js'
 import '../static/bootstrap-3.3.7/css/bootstrap.min.css'
 import '../static/css/base.css'
 
-Vue.use(VueAxios, axios, vueCookie, $)
 Vue.prototype.$cookie = vueCookie
 Vue.prototype.$qs = qs
 Vue.config.productionTip = false
@@ -27,3 +26,34 @@ new Vue({
   },
   template: '<App/>'
 })
+axios.defaults.baseURL = 'https://www.chidict.com/';
+axios.interceptors.request.use(
+  config => {
+    var token =localStorage.token
+    if (token) {
+      config.headers.Authorization =token;
+    }
+    return config;
+  },
+  err => {
+    return Promise.reject(err);
+  });
+// http response 服务器响应拦截器，这里拦截401错误，并重新跳入登页重新获取token
+axios.interceptors.response.use(
+  response => {
+    return response;
+  },
+  error => {
+    if (error.response) {
+      switch (error.response.status) {
+        case 401:
+          // 这里写清除token的代码
+          localStorage.removeItem('token');
+          router.replace({
+            path: '/login',
+            query: {redirect: router.currentRoute.fullPath}  //登录成功后跳入浏览的当前页面
+          })
+      }
+    }
+    return Promise.reject(error.response.data) 
+  });
