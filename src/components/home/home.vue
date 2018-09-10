@@ -59,7 +59,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+ @textColor:#388E3C;
 .btn-group{
   display: flex;
   justify-content: center;
@@ -71,8 +72,8 @@ border-color: inherit;
 .tab-button.active,.btn-default:active {
   color:#fff;
   outline: none;
-  background: #388E3C;
-  border-color:#388E3C;
+  background: @textColor;
+  border-color:@textColor;
   box-shadow:unset;
 }
 .tab {

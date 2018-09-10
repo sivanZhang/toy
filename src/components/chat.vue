@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <header class="text-center row"><span class="h4">消息</span></header>
+    <header class="text-center row">消息</header>
     <foote-menu :navindex='1'></foote-menu>
   </div>
 </template>
@@ -61,5 +61,8 @@ export default {
 }
 .item-footer .col-xs-2{
   padding-left: 0px;
+}
+h4{
+  font-size: 15px!important;
 }
 </style>

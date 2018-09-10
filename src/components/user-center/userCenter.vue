@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-    <header class="text-center row"><span class="h4">个人中心</span></header>
+    <page-header>个人中心</page-header>
     <div class="title text-center" @click="toChange">
         <img class="user-img" :src="image_src" alt="">
         <div class="name">{{phone_number||'游客'}}</div>
