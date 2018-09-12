@@ -1,6 +1,12 @@
 <template>
-  <div>
-    “发现”建设中...
+  <div class="row">
+    <div v-for="(item,index) in products" :key="index" class="container">
+      <img :src="api+item.picture" alt="">
+      <div>{{item.name}}
+      <p class="accent-text-color">￥{{item.price}}</p>
+      </div>
+    </div>
+    
   </div>
 </template>
 
@@ -9,10 +15,37 @@ export default {
   name: "discover",
   data() {
     return {
+      products:[],
+      api:this.axios.defaults.baseURL
 	  };
+  },
+  created(){
+    let self = this;
+    self.axios.get('get_json').then(res => {
+      let aProduct =JSON.parse(res.data)
+      self.products=[...aProduct]
+      }
+    ).catch(error => {
+          console.log(error);
+        });
   }
 }
 </script>
 
 <style scoped>
+img{
+  height: 100px;
+  width: 100px;
+  border: 1px solid #efefef;
+}
+.row>div{
+    background: #fff;
+    display: flex;
+    justify-content: flex-start;
+}
+.row>div+div{
+   border-top: 1px solid #ddd;
+}.row{
+  margin-top: 15px;
+}
 </style>

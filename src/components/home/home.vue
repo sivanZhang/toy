@@ -8,7 +8,7 @@
       <button
       v-for="(tab,index) in tabs"
       v-bind:key="index"
-      v-bind:class="[{ active: currentTab === tab.path },'tab-button','btn-default','btn']"
+      v-bind:class="[{ active: currentTab === tab.path },'tab-button','btn']"
       v-on:click="currentTab = tab.path">
       {{ tab.name }}
       </button>
@@ -55,27 +55,39 @@ export default {
   },
   mounted() {
     document.title='Toy-'+this.title;
-  },
+    document.body.style.backgroundColor='#ebebeb';
+  },beforeDestroy(){
+    document.body.style.backgroundColor='inherit';
+  }
 }
 </script>
 
 <style scoped lang="less">
+
  @textColor:#388E3C;
 .btn-group{
   display: flex;
   justify-content: center;
   margin-top: 10px;
-}
-.tab-button:hover,.btn-default:hover{
+  .btn{
+    flex: 1 1 0;
+    border-radius:0px;
+    background: none;
+    border-width: 0 0 1px 0;
+    outline: none;
+  }
+  .tab-button:hover,.btn-default:hover{
 border-color: inherit;
 }
 .tab-button.active,.btn-default:active {
-  color:#fff;
+  color: #FF5252;
   outline: none;
-  background: @textColor;
-  border-color:@textColor;
+  background: none;
+  border-bottom:#FF5252 2px solid;
   box-shadow:unset;
 }
+}
+
 .tab {
   border: 1px solid #ccc;
   padding: 10px;
@@ -97,5 +109,12 @@ border-color: inherit;
 .fa-search{
 	transform: translateX(30px);
 	color: gray;
+}
+header.row{
+    color: gray;
+    text-align: center;
+    border-bottom: 1px solid #e1e4e8;
+    height: 50px;
+    line-height: 50px;
 }
 </style>

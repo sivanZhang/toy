@@ -14,8 +14,9 @@ import '../static/bootstrap-3.3.7/js/bootstrap.min.js'
 import '../static/bootstrap-3.3.7/css/bootstrap.min.css'
 import '../static/css/base.css'
 
-import footeMenu from '@/components/base/footeMenu'
-Vue.component('foote-menu', footeMenu)
+import footeMenu from '@/components/base/footeMenu';
+Vue.component('foote-menu', footeMenu);
+
 import pageHeader from '@/components/base/pageHeader'
 Vue.component('page-header', pageHeader) //必须一个引入后面跟一个全局组件不然局部CSS不生效
 

@@ -55,7 +55,7 @@ ul {
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding: 4px 0;
+  padding: 4px 0 0;
   text-align: center;
   color: #757575;
   font-size: 12px;
@@ -65,5 +65,6 @@ li img {
 }
 li.base-color img{
   height: 42px;
+  margin-top: -4px;
 }
 </style>

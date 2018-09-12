@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="nav-wrap">
     <nav class="flex text-center">
       <div><img src="../../assets/icons/boy.svg" alt="icon"><br>男孩</div>
       <div><img src="../../assets/icons/girl.svg" alt="icon"><br>女孩</div>
@@ -26,6 +26,9 @@ export default {
 </script>
 
 <style scoped>
+.nav-wrap{
+  background: #fff;
+}
 .flex div{
 width: 20%;
 }

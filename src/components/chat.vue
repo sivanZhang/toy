@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <header class="text-center row">消息</header>
+    <page-header>消息</page-header>
     <foote-menu :navindex='1'></foote-menu>
   </div>
 </template>
