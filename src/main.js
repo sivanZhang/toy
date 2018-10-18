@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import store from './store'
 Vue.use(VueAxios, axios)
 import qs from 'qs'
 Vue.prototype.$qs = qs
@@ -9,11 +10,13 @@ Vue.prototype.$cookie = vueCookie
 import $ from 'jquery'
 import App from './App'
 import router from './router'
+import MintUI from 'mint-ui'
+Vue.use(MintUI);
 import '../static/js/jquery.message.js'
 import '../static/bootstrap-3.3.7/js/bootstrap.min.js'
 import '../static/bootstrap-3.3.7/css/bootstrap.min.css'
 import '../static/css/base.css'
-
+import 'mint-ui/lib/style.css'
 import footeMenu from '@/components/base/footeMenu';
 Vue.component('foote-menu', footeMenu);
 
@@ -25,6 +28,7 @@ Vue.config.productionTip = false
 new Vue({
     el: '#app',
     router,
+    store,
     components: {
         App
     },
