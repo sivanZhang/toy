@@ -13,18 +13,24 @@
                     <i class="fa fa-ellipsis-h fa-lg" aria-hidden="true"></i>
                 </div>
         </header>
-        <div><mt-swipe class="row" :auto="3000">
+         
+        <div><mt-swipe class="item-img" :auto="0">
         <mt-swipe-item class="slide1">
             <img :src="api+product.picture" alt="">
         </mt-swipe-item>
-        <mt-swipe-item @click.native="test" class="slide2">
+        <mt-swipe-item class="slide2">
             <img :src="api+product.picture" alt="">
         </mt-swipe-item>
         <mt-swipe-item class="slide3">
             <img :src="api+product.picture" alt="">
         </mt-swipe-item>
         </mt-swipe></div>
-        
+        <div class="product_name">
+            {{product.name}}
+        </div>
+        <p class="accent-text-color price">
+            ￥{{product.price}}
+        </p>
     </div>
 </template>
 <script>
@@ -32,11 +38,17 @@ export default {
   data() {
     return {
         api: this.axios.defaults.baseURL,
-        product:this.$store.state.product,
+        product:Object.assign(this.$store.state.product)
     };
   },
   methods:{
 
+  }
+  ,
+  mounted(){
+    let imgWidth = $(".item-img").width();
+
+    $(".item-img>img,.item-img").height(imgWidth);
   }
 };
 </script>
@@ -59,5 +71,15 @@ header{
     div:last-of-type{
         text-align: right;
     }
+}
+.item-img /deep/ img{
+    width: 100%;
+}
+.product_name{
+    padding: 15px;
+}
+.price{
+    font-style: 14px;
+    padding: 15px;
 }
 </style>

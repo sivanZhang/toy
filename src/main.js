@@ -12,11 +12,11 @@ import App from './App'
 import router from './router'
 import MintUI from 'mint-ui'
 Vue.use(MintUI);
+import 'mint-ui/lib/style.css'
 import '../static/js/jquery.message.js'
 import '../static/bootstrap-3.3.7/js/bootstrap.min.js'
 import '../static/bootstrap-3.3.7/css/bootstrap.min.css'
 import '../static/css/base.css'
-import 'mint-ui/lib/style.css'
 import footeMenu from '@/components/base/footeMenu';
 Vue.component('foote-menu', footeMenu);
 

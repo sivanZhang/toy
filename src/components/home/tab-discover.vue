@@ -20,9 +20,9 @@ export default {
     };
   },
   methods: {
-    getDetail(product,urlId){
-      this.$store.commit('setProduct',product);
-      /* this.$router.push(`/details/${urlId+1}`); */
+    getDetail(item,index){
+      this.$store.commit('setProduct',item);
+      this.$router.push(`/details/${index+1}`);
     }
   },
   created() {
