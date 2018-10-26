@@ -31,21 +31,22 @@
         <p class="accent-text-color price">
             ￥{{product.price}}
         </p>
+        <details-menu></details-menu>
     </div>
 </template>
 <script>
+import detailsMenu from "./detailsMenu";
 export default {
   data() {
     return {
-        api: this.axios.defaults.baseURL,
-        product:Object.assign(this.$store.state.product)
+      api: this.axios.defaults.baseURL,
+      product: Object.assign(this.$store.state.product)
     };
   },
-  methods:{
-
-  }
-  ,
-  mounted(){
+  components: {
+    detailsMenu
+  },
+  mounted() {
     let imgWidth = $(".item-img").width();
 
     $(".item-img>img,.item-img").height(imgWidth);
@@ -53,33 +54,33 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-header{
-    padding: 10px 15px;
+header {
+  padding: 10px 15px;
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  justify-content: space-between;
+  align-items: center;
+  div.submenu {
+    flex: 3 1 auto;
     display: flex;
-    border-bottom: 1px solid #ddd;
-    justify-content: space-between;
-    align-items: center;
-    div.submenu{
-        flex: 3 1 auto;
-        display: flex;
-        justify-content: space-around;
-    }
-    div:not(.submenu){
-        flex: 1 1 auto;
-        font-size: 16px;
-    }
-    div:last-of-type{
-        text-align: right;
-    }
+    justify-content: space-around;
+  }
+  div:not(.submenu) {
+    flex: 1 1 auto;
+    font-size: 16px;
+  }
+  div:last-of-type {
+    text-align: right;
+  }
 }
-.item-img /deep/ img{
-    width: 100%;
+.item-img /deep/ img {
+  width: 100%;
 }
-.product_name{
-    padding: 15px;
+.product_name {
+  padding: 15px;
 }
-.price{
-    font-style: 14px;
-    padding: 15px;
+.price {
+  font-style: 14px;
+  padding: 15px;
 }
 </style>
